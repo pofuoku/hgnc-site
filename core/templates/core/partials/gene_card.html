@@ -1,0 +1,35 @@
+<article class="gene-card" aria-labelledby="gene-heading">
+  <header class="gene-card-header">
+    <h2 id="gene-heading"><span class="symbol">{{ gene.gene_symbol }}</span></h2>
+    <p class="gene-name">{{ gene.gene_name|default:"Gene name not available" }}</p>
+  </header>
+
+  <dl class="gene-fields">
+    <dt>HGNC gene symbol</dt>
+    <dd>{{ gene.gene_symbol }}</dd>
+
+    <dt>HGNC ID</dt>
+    <dd>
+      {{ gene.hgnc_id }}
+      {% if hgnc_report_url %}<a class="external" href="{{ hgnc_report_url }}" rel="noopener">View on HGNC</a>{% endif %}
+    </dd>
+
+    <dt>Gene name</dt>
+    <dd>{% if gene.gene_name %}{{ gene.gene_name }}{% else %}<span class="not-available">Not available</span>{% endif %}</dd>
+
+    <dt>Previous gene symbols</dt>
+    <dd>{% include "core/partials/value_list.html" with values=gene.previous_symbols %}</dd>
+
+    <dt>Previous gene names</dt>
+    <dd>{% include "core/partials/value_list.html" with values=gene.previous_names plain=True %}</dd>
+
+    <dt>Aliases / synonyms</dt>
+    <dd>{% include "core/partials/value_list.html" with values=gene.aliases %}</dd>
+
+    <dt>MANE Select transcript</dt>
+    <dd>{% include "core/partials/value_list.html" with values=gene.mane_select %}</dd>
+
+    <dt>MANE Plus Clinical transcript(s)</dt>
+    <dd>{% include "core/partials/value_list.html" with values=gene.mane_plus_clinical %}</dd>
+  </dl>
+</article>

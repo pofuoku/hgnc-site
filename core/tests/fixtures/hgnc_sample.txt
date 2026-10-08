@@ -1,0 +1,5 @@
+hgnc_id	symbol	name	locus_group	status	alias_symbol	prev_symbol	prev_name	mane_select	gencc
+HGNC:5	A1BG	alpha-1-B glycoprotein	protein-coding gene	Approved				ENST00000263100.8|NM_130786.4	
+HGNC:37133	A1BG-AS1	A1BG antisense RNA 1	non-coding RNA	Approved	FLJ23569	"NCRNA00181|A1BGAS|A1BG-AS"	"non-protein coding RNA 181|A1BG antisense RNA (non-protein coding)|A1BG antisense RNA 1 (non-protein coding)"		
+HGNC:1101	BRCA2	BRCA2 DNA repair associated	protein-coding gene	Approved	"FAD|FAD1|BRCC2|XRCC11"	FANCD1	"Fanconi anemia, complementation group D1"	ENST00000380152.8|NM_000059.4	HGNC:1101
+	NOID	missing id row	other	Approved					
