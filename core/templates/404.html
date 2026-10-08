@@ -1,0 +1,8 @@
+{% extends "core/base.html" %}
+{% block title %}Page not found – HGNC Gene Search{% endblock %}
+{% block content %}
+  <section class="message message-warning">
+    <h2>Page not found</h2>
+    <p>That page does not exist. <a href="{% url 'core:gene_search' %}">Go to the gene search</a>.</p>
+  </section>
+{% endblock %}

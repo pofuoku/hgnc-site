@@ -1,0 +1,17 @@
+<form class="search-form" method="get" action="{% url 'core:gene_search' %}" role="search">
+  <label for="{{ form.q.id_for_label }}">{{ form.q.label }}</label>
+  <div class="search-row">
+    {{ form.q }}
+    <button type="submit">Search</button>
+  </div>
+  {% if form.q.errors %}
+    <div class="message message-error" role="alert">
+      {% for error in form.q.errors %}<p>{{ error }}</p>{% endfor %}
+    </div>
+  {% endif %}
+  <p class="hint">Examples:
+    <a href="?q=BRCA2">BRCA2</a>,
+    <a href="?q=HGNC%3A1101">HGNC:1101</a>,
+    <a href="?q=TP53">TP53</a>
+  </p>
+</form>

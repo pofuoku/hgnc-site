@@ -1,0 +1,27 @@
+{% load static %}<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}HGNC Gene Search{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="{% url 'core:gene_search' %}">HGNC Gene Search</a>
+      <span class="tagline">Look up human genes by approved symbol or HGNC ID</span>
+    </div>
+  </header>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      Gene data from the <a href="https://www.genenames.org/" rel="noopener">HUGO Gene Nomenclature Committee (HGNC)</a> complete set.
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{% comment %}
+Shows a list of values as tags, or "Not available" when the list is empty.
+Usage: {% include "core/partials/value_list.html" with values=gene.aliases %}
+Add plain=True for prose values (e.g. names) to use the normal font.
+{% endcomment %}
+{% if values %}
+  <ul class="tags{% if plain %} tags-plain{% endif %}">{% for value in values %}<li>{{ value }}</li>{% endfor %}</ul>
+{% else %}
+  <span class="not-available">Not available</span>
+{% endif %}

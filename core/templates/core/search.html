@@ -1,0 +1,30 @@
+{% extends "core/base.html" %}
+
+{% block title %}{% if gene %}{{ gene.gene_symbol }} – {% endif %}HGNC Gene Search{% endblock %}
+
+{% block content %}
+  {% include "core/partials/search_form.html" %}
+
+  {% if gene %}
+    {% include "core/partials/gene_card.html" %}
+  {% elif term %}
+    <section class="message message-warning" role="status">
+      <h2>No gene found</h2>
+      <p>No gene has the {{ term.label }} <strong>{{ term.value }}</strong>.
+        {% if term.is_hgnc_id %}Check the number and try again.{% else %}Searches use the current HGNC-approved symbol.{% endif %}
+      </p>
+      {% if related_genes %}
+        <p><strong>{{ term.value }}</strong> is listed for these genes:</p>
+        <ul class="related">
+          {% for related in related_genes %}
+            <li>
+              <a href="?q={{ related.hgnc_id|urlencode }}">{{ related.gene_symbol }}</a>
+              ({{ related.hgnc_id }}) - {{ related.gene_name }}
+              <span class="matched-as">as a {{ related.matched_as }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </section>
+  {% endif %}
+{% endblock %}
