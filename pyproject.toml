@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hgnc-site"
+version = "0.1.0"
+description = "Django web application for searching human genes in the HGNC complete set."
+readme = "README.md"
+requires-python = ">=3.12"
+# Pinned to the versions the application was developed and tested with.
+dependencies = [
+    "Django==6.0.5",
+    "pytest==9.0.3",
+    "pytest-cov==7.0.0",
+    "pytest-django==4.14.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["core*", "hgnc_site*"]
+
+[tool.setuptools.package-data]
+core = [
+    "templates/*.html",
+    "templates/core/*.html",
+    "templates/core/partials/*.html",
+    "static/core/css/*.css",
+    "tests/fixtures/*",
+]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "hgnc_site.settings"
+testpaths = ["core/tests"]
+python_files = ["test_*.py"]
+addopts = "-ra"
+
+[tool.coverage.run]
+branch = true
+omit = [
+    "*/migrations/*",
+    "*/tests/*",
+    "manage.py",
+    "hgnc_site/asgi.py",
+    "hgnc_site/wsgi.py",
+]
+
+[tool.coverage.report]
+show_missing = true
