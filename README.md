@@ -198,6 +198,24 @@ environment variables:
 | `DJANGO_DEBUG` | `true` | Debug mode |
 | `DJANGO_ALLOWED_HOSTS` | `localhost,127.0.0.1` | Comma-separated allowed host names |
 
+
+## Accessing the Django Admin
+
+This project ships with the minimal out-of-the-box admin interface provided by Django.
+
+1. Create an admin superuser account:
+
+```bash
+python manage.py createsuperuser
+```
+Fill in your username and password in commanline prompt
+  
+2. Start the development server (if not already running):
+ ```bash
+python manage.py runserver
+```
+Open http://127.0.0.1:8000/admin/ in your browser and log in with your superuser credentials.
+
 ## Notes on the data
 
 - **Multiple values.** HGNC separates multiple values in one field with `|`;
